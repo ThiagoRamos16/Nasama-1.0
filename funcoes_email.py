@@ -2,8 +2,9 @@ from email.message import EmailMessage
 import smtplib
 import ssl
 import json
+import interface
 
-email_remetente = 'seuemail@gmail.com'
+email_remetente = 'sunospython@gmail.com'
 senha = open('files/senha', 'r').read()
 
 def carrega_contatos():
@@ -37,16 +38,20 @@ def formata_email(texto):
 
 def enviar_email(cria_audio, monitora_audio): 
     try:
-        
+        interface.inicia_animacao()
         cria_audio('mensagem.mp3', 'Para quem deseja enviar o e-mail?')
+        interface.para_animacao() 
         destinatario = resolve_destinatario(                          
             monitora_audio(executar_comando=False), cria_audio, monitora_audio
         )
-        
+        interface.inicia_animacao()  
         cria_audio('mensagem.mp3', 'Qual o assunto do e-mail?')
+        interface.para_animacao() 
         assunto = monitora_audio(executar_comando=False)
-
+        
+        interface.inicia_animacao() 
         cria_audio('mensagem.mp3', 'Qual a mensagem?')
+        interface.para_animacao()
         corpo = monitora_audio(executar_comando=False)
 
         message = EmailMessage()
@@ -61,8 +66,14 @@ def enviar_email(cria_audio, monitora_audio):
             servidor.login(email_remetente, senha)
             servidor.sendmail(email_remetente, destinatario, message.as_string())
 
+        interface.inicia_animacao() 
+        interface.para_animacao()
         return "E-mail enviado com sucesso!"
+        
     except Exception as e:
+        interface.inicia_animacao()  
+        interface.para_animacao()
         return f"Erro ao enviar e-mail: {str(e)}"
+        
 
 
