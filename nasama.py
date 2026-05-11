@@ -60,7 +60,7 @@ def executa_comandos(acao):
         interface.janela.after(0, interface.janela.destroy)
         sys.exit()
     elif 'horas' in acao:
-        hora = teste_os.verifica_hora()
+        hora = funcoes_so.verifica_hora()
         interface.atualiza_status("falando")
         interface.inicia_animacao()
         interface.adiciona_historico("Nasama", hora)
@@ -70,7 +70,7 @@ def executa_comandos(acao):
         
     elif 'enviar email' in acao or 'enviar e-mail' in acao:
         interface.atualiza_status("ouvindo")
-        status_email = teste_email.enviar_email(cria_audio,monitora_audio)
+        status_email = funcoes_email.enviar_email(cria_audio,monitora_audio)
         interface.atualiza_status("falando")
         interface.inicia_animacao()
         interface.adiciona_historico("Nasama", status_email)
