@@ -53,14 +53,17 @@ def monitora_audio(executar_comando=True):
             except sr.WaitTimeoutError:
                 interface.inicia_animacao()
                 cria_audio("erro.mp3", "Não ouvi nada. Pode repetir?.")
+                interface.adiciona_historico("Nasama", "Não ouvi nada. Pode repetir?")
                 interface.para_animacao()
             except sr.UnknownValueError:
                 interface.inicia_animacao()
                 cria_audio("erro.mp3", "Não consegui entender. Tente novamente.")
+                interface.adiciona_historico("Nasama", "Não consegui entender. Tente novamente.")
                 interface.para_animacao()
             except sr.RequestError:
                 interface.inicia_animacao()
                 cria_audio("erro.mp3", "Erro ao conectar ao serviço de reconhecimento.")
+                interface.adiciona_historico("Nasama", "Erro ao conectar ao serviço de reconhecimento.")
                 interface.para_animacao()
         return mensagem 
     
@@ -171,7 +174,27 @@ def executa_comandos(acao):
         interface.para_animacao()
         interface.atualiza_status("ouvindo")
     
-    
+    elif 'clima' in acao or 'temperatura' in acao:
+        while True:  
+            interface.atualiza_status("falando")
+            interface.inicia_animacao()
+            cria_audio('mensagem.mp3', 'Qual cidade deseja saber a temperatura?')
+            interface.adiciona_historico("Nasama", "Qual cidade deseja saber a temperatura?")
+            interface.para_animacao()
+            interface.atualiza_status("ouvindo")
+            
+            cidade = monitora_audio(executar_comando=False)
+            
+            interface.atualiza_status("falando")
+            interface.inicia_animacao()
+            resultado = funcoes_clima.temperatura(cidade)
+            interface.adiciona_historico("Nasama", resultado)
+            cria_audio('mensagem.mp3', resultado)
+            interface.para_animacao()
+            interface.atualiza_status("ouvindo")
+            
+            if 'Não encontrei' not in resultado and 'Não consegui' not in resultado:
+                break  
     
 
 def main():
