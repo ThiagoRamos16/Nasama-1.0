@@ -56,6 +56,10 @@ nasama/
 │   ├── senha            # não incluso — senha de app do Gmail
 │   └── contatos.json    # não incluso — agenda de contatos
 │
+├── screenshots/
+│   ├── dark.png         # interface tema dark
+│   └── light.png        # interface tema light
+│
 ├── funcoes_email.py     # funções de envio de e-mail por voz
 ├── funcoes_so.py        # funções do sistema operacional
 ├── funcoes_noticias.py  # notícias de 5 fontes RSS
