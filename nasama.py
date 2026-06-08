@@ -40,8 +40,9 @@ def monitora_audio(executar_comando=True):
         recon.adjust_for_ambient_noise(source, duration=1)
         while True:
             print("Diga alguma coisa")
-            audio = recon.listen(source, timeout=10, phrase_time_limit=10)
+            
             try:
+                audio = recon.listen(source, timeout=10, phrase_time_limit=10)
                 mensagem = recon.recognize_google(audio, language= 'pt-br')
                 mensagem = mensagem.lower()
                 print("Você disse: ", mensagem)
