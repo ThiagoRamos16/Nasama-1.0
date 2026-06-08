@@ -9,7 +9,7 @@ capaz de executar tarefas por comando de voz.
 
 ---
 
-## 📸 Interface          ← ✅ aqui, antes das funcionalidades
+## 📸 Interface
 
 | Dark | Light |
 |---|---|
