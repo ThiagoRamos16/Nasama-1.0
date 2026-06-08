@@ -1,10 +1,14 @@
 from requests import get
+from dotenv import load_dotenv
+import os
 
-chave = 'fca6352b16e4b0407b22f6c98d9ae283'
+load_dotenv()
+
+CHAVE_API = os.getenv("OPENWEATHER_API_KEY")
 
 def temperatura(cidade):
     try:
-        url = f'http://api.openweathermap.org/data/2.5/weather?q={cidade}&appid={chave}&units=metric&lang=pt_br'
+        url = f'http://api.openweathermap.org/data/2.5/weather?q={cidade}&appid={CHAVE_API}&units=metric&lang=pt_br'
         resposta = get(url)
         dados = resposta.json()
         if dados['cod'] == 404:

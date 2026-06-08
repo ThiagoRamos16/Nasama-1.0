@@ -4,7 +4,6 @@ import sys
 import threading
 import time
 
-# Configuração pygame (antes do import)
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 
 # Bibliotecas externas
