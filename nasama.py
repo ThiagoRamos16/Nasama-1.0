@@ -52,20 +52,26 @@ def monitora_audio(executar_comando=True):
                     executa_comandos(mensagem)
                 break
             except sr.WaitTimeoutError:
+                interface.atualiza_status("falando")
                 interface.inicia_animacao()
                 cria_audio("erro.mp3", "Não ouvi nada. Pode repetir?.")
                 interface.adiciona_historico("Nasama", "Não ouvi nada. Pode repetir?")
                 interface.para_animacao()
+                interface.atualiza_status("ouvindo")
             except sr.UnknownValueError:
+                interface.atualiza_status("falando")
                 interface.inicia_animacao()
                 cria_audio("erro.mp3", "Não consegui entender. Tente novamente.")
                 interface.adiciona_historico("Nasama", "Não consegui entender. Tente novamente.")
                 interface.para_animacao()
+                interface.atualiza_status("ouvindo")
             except sr.RequestError:
+                interface.atualiza_status("falando")
                 interface.inicia_animacao()
                 cria_audio("erro.mp3", "Erro ao conectar ao serviço de reconhecimento.")
                 interface.adiciona_historico("Nasama", "Erro ao conectar ao serviço de reconhecimento.")
                 interface.para_animacao()
+                interface.atualiza_status("ouvindo")
         return mensagem 
     
 
