@@ -45,6 +45,7 @@ capaz de executar tarefas por comando de voz.
 | BeautifulSoup4 | Leitura de feeds RSS |
 | lxml | Parser XML para RSS |
 | OpenWeatherMap API | Temperatura e clima por cidade |
+| python-dotenv | Variáveis de ambiente |
 
 ---
 
