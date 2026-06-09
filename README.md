@@ -1,4 +1,4 @@
-# 🎙️ Nasama — Assistente Virtual
+# 🎙️ Nasama 1.0 — Assistente Virtual
 
 Assistente virtual desenvolvida em Python com reconhecimento e síntese de voz,
 capaz de executar tarefas por comando de voz.
