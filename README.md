@@ -33,22 +33,24 @@ Assistente virtual desktop desenvolvida em Python com reconhecimento de voz, sí
 
 ## 🏗️ Arquitetura Simplificada
 
+```text
 Usuário
-↓
+   ↓
 Microfone
-↓
+   ↓
 SpeechRecognition
-↓
+   ↓
 Processamento de Comandos
-├── E-mail
-├── Notícias
-├── Clima
-├── Cotação
-└── Sistema Operacional
-↓
+   ├── E-mail
+   ├── Notícias
+   ├── Clima
+   ├── Cotação
+   └── Sistema Operacional
+   ↓
 gTTS
-↓
+   ↓
 Resposta por Voz
+```
 
 ---
 
