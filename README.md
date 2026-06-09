@@ -60,6 +60,7 @@ nasama/
 │   ├── dark.png         # interface tema dark
 │   └── light.png        # interface tema light
 │
+├── .env.example
 ├── funcoes_email.py     # funções de envio de e-mail por voz
 ├── funcoes_so.py        # funções do sistema operacional
 ├── funcoes_noticias.py  # notícias de 5 fontes RSS
@@ -86,11 +87,19 @@ cd Nasama-1.0
 ```bash
 pip install -r requirements.txt
 ```
-> Bibliotecas instaladas: `gTTS`, `pygame`, `SpeechRecognition`, `customtkinter`, `Pillow`, `requests`, `beautifulsoup4`, `lxml`
+> Bibliotecas instaladas: `gTTS`, `pygame`, `SpeechRecognition`, `customtkinter`, `Pillow`, `requests`, `beautifulsoup4`, `lxml`, `python-dotenv`
 
 ### 3. Senha do Gmail
-Crie o arquivo `files/senha` com sua senha de app do Gmail.
-Veja como gerar: [Senhas de app Google](https://myaccount.google.com/apppasswords)
+Crie o arquivo `files/senha` com sua senha de aplicativo do Gmail.
+
+Para gerar uma senha de aplicativo:
+
+1. Ative a verificação em duas etapas na sua conta Google.
+2. Acesse a página de gerenciamento de senhas de aplicativo:
+   https://myaccount.google.com/apppasswords
+3. Gere uma nova senha de aplicativo.
+4. Copie a senha gerada.
+5. Salve a senha no arquivo `files/senha`.
 
 ### 4. Agenda de contatos
 Crie o arquivo `files/contatos.json` com seus contatos:
@@ -102,10 +111,27 @@ Crie o arquivo `files/contatos.json` com seus contatos:
 ```
 
 ### 5. Chave da API de Clima
-Crie uma conta gratuita em [openweathermap.org](https://openweathermap.org) e adicione sua chave no arquivo `funcoes_clima.py`.
+1. Crie uma conta gratuita em [openweathermap.org](https://openweathermap.org) e
+2. Gere uma chave de API
+3. Crie um arquivo `.env` na raiz do projeto utilizando o `.env.example` como modelo
+4. Adicione sua chave ao arquivo `.env`.
 
-### 6. Execute
-> ⚠️ **Recomendado: Python 3.12** — versões mais recentes podem ter incompatibilidade com o PyAudio.
+Exemplo:
+
+```env
+OPENWEATHER_API_KEY=sua_chave_aqui
+```
+
+## 6. Execute o Projeto
+
+⚠️ Recomendado: Python 3.12
+
+Versões mais recentes podem apresentar incompatibilidades com algumas dependências relacionadas ao reconhecimento de voz.
+
+Windows
+py -3.12 nasama.py
+Linux / MacOS
+python nasama.py
 
 ```bash
 # Windows com múltiplas versões Python
@@ -135,8 +161,13 @@ python nasama.py
 ---
 
 ## ⚠️ Segurança
-Os arquivos `files/senha`, `files/contatos.json` e a chave da API de clima **não estão no repositório** por segurança.
-Utilize sempre senha de app do Gmail, nunca a senha principal.
+Os arquivos abaixo não são enviados para o repositório:
+
+files/senha
+files/contatos.json
+.env
+
+Utilize sempre uma senha de aplicativo do Gmail e nunca sua senha principal.
 
 ---
 
