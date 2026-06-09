@@ -1,7 +1,7 @@
 # 🎙️ Nasama 1.0 — Assistente Virtual
 
-Assistente virtual desenvolvida em Python com reconhecimento e síntese de voz,
-capaz de executar tarefas por comando de voz.
+Assistente virtual desktop desenvolvida em Python com reconhecimento de voz, síntese de fala e integração com APIs externas para automação de tarefas, consulta de informações e envio de e-mails por comandos de voz.
+
 
 > O nome **Nasama** é uma homenagem aos meus 3 pets: **Na**ni, **Sa**ndy e **Ma**ya. 🐾
 
@@ -28,6 +28,27 @@ capaz de executar tarefas por comando de voz.
 - 💰 Cotação de moedas (Dólar, Euro, Bitcoin)
 - 🌡️ Temperatura atual por cidade
 - 💻 Desliga e cancela desligamento do computador por voz
+
+---
+
+## 🏗️ Arquitetura Simplificada
+
+Usuário
+↓
+Microfone
+↓
+SpeechRecognition
+↓
+Processamento de Comandos
+├── E-mail
+├── Notícias
+├── Clima
+├── Cotação
+└── Sistema Operacional
+↓
+gTTS
+↓
+Resposta por Voz
 
 ---
 
